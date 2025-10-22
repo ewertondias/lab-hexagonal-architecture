@@ -6,20 +6,46 @@ public class User {
 
     private final UserId id;
     private FullName name;
-    private Email email;
+    private ContactInfo contactInfo;
     private final CPF cpf;
+    private Address address;
     private UserStatusEnum status;
 
-    private User(UserId id, FullName name, Email email, CPF cpf) {
+    private User(UserId id, FullName name, ContactInfo contactInfo, CPF cpf, Address address) {
         this.id = id;
         this.name = name;
-        this.email = email;
+        this.contactInfo = contactInfo;
         this.cpf = cpf;
+        this.address = address;
         this.status = UserStatusEnum.ACTIVE;
     }
 
-    public static User of(UserId id, FullName name, Email email, CPF cpf) {
-        return new User(id, name, email, cpf);
+    public static User create(UserId id, FullName name, ContactInfo contactInfo, CPF cpf, Address address) {
+        return new User(id, name, contactInfo, cpf, address);
+    }
+
+    public UserId getId() {
+        return id;
+    }
+
+    public FullName getName() {
+        return name;
+    }
+
+    public Email getUserEmail() {
+        return contactInfo.email();
+    }
+
+    public CPF getCpf() {
+        return cpf;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public UserStatusEnum getStatus() {
+        return status;
     }
 
     @Override
@@ -39,8 +65,9 @@ public class User {
         return "User{" +
             "id=" + id +
             ", name=" + name +
-            ", email=" + email +
+            ", contactInfo=" + contactInfo +
             ", cpf=" + cpf +
+            ", address=" + address +
             ", status=" + status +
             '}';
     }
