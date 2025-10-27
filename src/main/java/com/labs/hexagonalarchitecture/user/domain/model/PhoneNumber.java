@@ -14,6 +14,10 @@ public record PhoneNumber(String value) {
         value = value.replaceAll("\\D", "");
     }
 
+    public static PhoneNumber of(String value) {
+        return new PhoneNumber(value);
+    }
+
     private void validate(String value) {
         if (value.length() != 9) {
             throw new PhoneInvalidException();

@@ -14,6 +14,10 @@ public record ZipCode(String value) {
         value = value.replaceAll("\\D", "");
     }
 
+    public static ZipCode of(String value) {
+        return new ZipCode(value);
+    }
+
     private void validate(String value) {
         if (!value.matches("\\d{5}-\\d{3}")) {
             throw new ZipCodeInvalidException();
