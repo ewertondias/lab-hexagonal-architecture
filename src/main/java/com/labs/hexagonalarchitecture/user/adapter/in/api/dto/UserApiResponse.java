@@ -1,12 +1,12 @@
-package com.labs.hexagonalarchitecture.user.application.dto;
+package com.labs.hexagonalarchitecture.user.adapter.in.api.dto;
 
-public record UserResponse(
+public record UserApiResponse(
     String id,
     String firstName,
     String lastName,
     String email,
     String phoneNumber,
     String cpf,
-    UserAddressResponse address,
+    UserAddressApiResponse address,
     String status) {
 }

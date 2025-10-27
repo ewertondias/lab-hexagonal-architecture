@@ -4,5 +4,7 @@ public record CreateUserCommand(
     String firstName,
     String lastName,
     String email,
-    String cpf) {
+    String phoneNumber,
+    String cpf,
+    UserAddressCommand addressCommand) {
 }

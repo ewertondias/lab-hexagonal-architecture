@@ -36,6 +36,10 @@ public class User {
         return contactInfo.email();
     }
 
+    public PhoneNumber getUserPhoneNumber() {
+        return contactInfo.phoneNumber();
+    }
+
     public CPF getCpf() {
         return cpf;
     }
