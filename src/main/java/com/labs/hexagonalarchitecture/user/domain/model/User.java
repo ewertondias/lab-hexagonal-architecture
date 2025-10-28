@@ -44,8 +44,24 @@ public class User {
         return cpf;
     }
 
-    public Address getAddress() {
-        return address;
+    public AddressStreet getUserStreet() {
+        return address.street();
+    }
+
+    public AddressNumber getUserNumber() {
+        return address.number();
+    }
+
+    public AddressCity getUserCity() {
+        return address.city();
+    }
+
+    public AddressState getUserState() {
+        return address.state();
+    }
+
+    public ZipCode getUserZipCode() {
+        return address.zipCode();
     }
 
     public UserStatusEnum getStatus() {

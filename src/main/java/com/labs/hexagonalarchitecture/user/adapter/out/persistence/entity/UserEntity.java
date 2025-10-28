@@ -47,6 +47,28 @@ public class UserEntity {
     @Column(nullable = false)
     private String status;
 
+    protected UserEntity() {
+    }
+
+    public UserEntity(UserEntityBuilder builder) {
+        this.id = builder.id;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.email = builder.email;
+        this.phoneNumber = builder.phoneNumber;
+        this.cpf = builder.cpf;
+        this.street = builder.street;
+        this.number = builder.number;
+        this.city = builder.city;
+        this.state = builder.state;
+        this.zipCode = builder.zipCode;
+        this.status = builder.status;
+    }
+
+    public static UserEntityBuilder builder() {
+        return new UserEntityBuilder();
+    }
+
     public UUID getId() {
         return id;
     }

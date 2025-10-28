@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 @Tag(name = "User", description = "Management of user")
 public interface UserApiDoc {
 
-    @Operation(summary = "Create new user", method = "POST")
+    @Operation(description = "Crete new user", summary = "Create new user", method = "POST")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "User created successfully"),
         @ApiResponse(responseCode = "400", description = "Bad request"),
@@ -21,7 +21,7 @@ public interface UserApiDoc {
     })
     ResponseEntity<UserApiResponse> create(CreateUserRequest request);
 
-    @Operation(summary = "Find user by id", method = "GET")
+    @Operation(description = "Find user by identification", summary = "Find user by identification", method = "GET")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "User returned successfully"),
         @ApiResponse(responseCode = "401", description = "Unauthorized"),
@@ -30,7 +30,7 @@ public interface UserApiDoc {
     })
     ResponseEntity<UserApiResponse> findById(String id);
 
-    @Operation(summary = "List all users", method = "GET")
+    @Operation(description = "List all users", summary = "List all users", method = "GET")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Users listed successfully"),
         @ApiResponse(responseCode = "500", description = "Internal server error")

@@ -21,9 +21,20 @@ public final class UserPersistenceAssembler {
     }
 
     public static UserEntity toEntity(User user) {
-        return new UserEntity(
-
-        );
+        return UserEntity.builder()
+            .id(user.getId().value())
+            .firstName(user.getName().firstName())
+            .lastName(user.getName().lastName())
+            .email(user.getUserEmail().value())
+            .phoneNumber(user.getUserPhoneNumber().value())
+            .cpf(user.getCpf().value())
+            .street(user.getUserStreet().value())
+            .number(user.getUserNumber().value())
+            .city(user.getUserCity().value())
+            .state(user.getUserState().value())
+            .zipCode(user.getUserZipCode().value())
+            .status(user.getStatus().name())
+            .build();
     }
 
     public static User toDomain(UserEntity entity) {
@@ -39,13 +50,7 @@ public final class UserPersistenceAssembler {
             ZipCode.of(entity.getZipCode())
         );
 
-        return User.create(
-            userId,
-            fullName,
-            contactInfo,
-            cpf,
-            address
-        );
+        return User.create(userId, fullName, contactInfo, cpf, address);
     }
 
 }
